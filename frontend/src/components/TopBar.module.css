@@ -1,0 +1,274 @@
+.topbar {
+    height: var(--topbar-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 12px;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-primary);
+    flex-shrink: 0;
+    position: relative;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.brand {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+.brand:hover {
+    color: var(--accent-blue);
+}
+
+.announcement {
+    font-size: 12px;
+    color: var(--text-tertiary);
+}
+
+.announcementLink {
+    color: var(--accent-green);
+    margin-left: 4px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.announcementLink:hover {
+    text-decoration: underline;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.searchBox {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 5px 10px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: 6px;
+    min-width: 240px;
+    transition: border-color 0.15s ease;
+}
+
+.searchBox:focus-within {
+    border-color: var(--accent-blue);
+}
+
+.searchBox input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--text-primary);
+    font-size: 12px;
+}
+
+.searchBox input::placeholder {
+    color: var(--text-tertiary);
+}
+
+.searchBox svg {
+    color: var(--text-tertiary);
+}
+
+.clearSearch {
+    cursor: pointer;
+    color: var(--text-tertiary);
+}
+
+.clearSearch:hover {
+    color: var(--text-primary);
+}
+
+.searchShortcut {
+    font-size: 10px;
+    padding: 2px 5px;
+    background: var(--bg-tertiary);
+    border-radius: 3px;
+    color: var(--text-tertiary);
+}
+
+.cryptaiBtn {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 5px 12px;
+    font-size: 12px;
+    font-weight: 500;
+    background: linear-gradient(135deg, #a371f7 0%, #58a6ff 100%);
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.cryptaiBtn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+}
+
+.cryptaiBtn svg {
+    color: #fff;
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.iconBtn {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent;
+    border: none;
+    border-radius: 6px;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.iconBtn:hover {
+    background: var(--bg-hover);
+    color: var(--text-secondary);
+}
+
+.notifDot {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 6px;
+    height: 6px;
+    background: var(--accent-red);
+    border-radius: 50%;
+}
+
+.textBtn {
+    padding: 5px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    background: transparent;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: color 0.15s ease;
+}
+
+.textBtn:hover {
+    color: var(--text-primary);
+}
+
+.upgradeBtn {
+    padding: 5px 14px;
+    font-size: 12px;
+    font-weight: 500;
+    background: var(--accent-blue);
+    border: none;
+    border-radius: 6px;
+    color: #fff;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+}
+
+.upgradeBtn:hover {
+    opacity: 0.9;
+}
+
+/* Dropdown */
+.dropdown {
+    position: absolute;
+    top: 100%;
+    right: 12px;
+    width: 300px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    z-index: 100;
+    animation: slideDown 0.15s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdownHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border-primary);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.dropdownHeader button {
+    background: none;
+    border: none;
+    color: var(--text-tertiary);
+    cursor: pointer;
+}
+
+.dropdownContent {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.notifItem {
+    display: flex;
+    gap: 10px;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border-secondary);
+    cursor: pointer;
+    transition: background 0.1s ease;
+}
+
+.notifItem:hover {
+    background: var(--bg-hover);
+}
+
+.notifItem p {
+    font-size: 12px;
+    color: var(--text-primary);
+    margin: 0 0 2px 0;
+}
+
+.notifItem span {
+    font-size: 10px;
+    color: var(--text-tertiary);
+}
+
+.notifDotSmall {
+    width: 8px;
+    height: 8px;
+    background: var(--accent-blue);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 4px;
+}

@@ -1,0 +1,179 @@
+.container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--border-primary);
+    flex-shrink: 0;
+}
+
+.title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.icon {
+    color: var(--text-tertiary);
+    cursor: pointer;
+}
+
+.icon:hover {
+    color: var(--text-secondary);
+}
+
+.toolbar {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border-primary);
+    flex-shrink: 0;
+}
+
+.tab {
+    padding: 3px 8px;
+    font-size: 10px;
+    font-weight: 500;
+    background: transparent;
+    border: 1px solid var(--border-primary);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.tab.active {
+    background: var(--accent-blue);
+    border-color: var(--accent-blue);
+    color: #fff;
+}
+
+.spacer {
+    flex: 1;
+}
+
+.timeBtn {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px 6px;
+    font-size: 10px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.tableHeader {
+    display: grid;
+    grid-template-columns: 20px 1fr 70px 70px;
+    padding: 6px 12px;
+    font-size: 9px;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border-primary);
+    flex-shrink: 0;
+}
+
+.tableBody {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.row {
+    display: grid;
+    grid-template-columns: 20px 1fr 70px 70px;
+    padding: 6px 12px;
+    font-size: 11px;
+    border-bottom: 1px solid var(--border-secondary);
+    cursor: pointer;
+    transition: background 0.1s ease;
+}
+
+.row:hover {
+    background: var(--bg-hover);
+}
+
+.rank {
+    color: var(--text-tertiary);
+}
+
+.asset {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--text-primary);
+    font-weight: 500;
+}
+
+.assetDot {
+    color: var(--accent-blue);
+    font-size: 8px;
+}
+
+.mindshare {
+    text-align: right;
+    color: var(--text-secondary);
+}
+
+.change {
+    text-align: right;
+    color: var(--accent-green);
+    font-weight: 500;
+}
+
+.positive {
+    color: var(--accent-green);
+}
+
+.negative {
+    color: var(--accent-red);
+}
+
+.refreshBtn {
+    background: transparent;
+    border: none;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    padding: 2px;
+    margin-right: 8px;
+}
+
+.refreshBtn:hover:not(:disabled) {
+    color: var(--accent-blue);
+}
+
+.spinning {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.loadingState {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+    color: var(--accent-blue);
+}

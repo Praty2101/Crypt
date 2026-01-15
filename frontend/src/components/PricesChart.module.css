@@ -1,0 +1,607 @@
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.refreshBtn {
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+    border-radius: 4px;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.refreshBtn:hover:not(:disabled) {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+}
+
+.refreshBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.spinning {
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.lastUpdated {
+    font-size: 10px;
+    color: var(--text-tertiary);
+    margin-right: 12px;
+}
+
+.errorBanner {
+    padding: 8px 12px;
+    background: rgba(248, 81, 73, 0.15);
+    border-bottom: 1px solid rgba(248, 81, 73, 0.3);
+    color: var(--accent-red);
+    font-size: 11px;
+}
+
+/* Live Button */
+.liveBtn {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    font-size: 10px;
+    font-weight: 600;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+    border-radius: 4px;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.liveBtn:hover {
+    border-color: var(--accent-green);
+    color: var(--accent-green);
+}
+
+.liveBtn.liveActive {
+    background: rgba(63, 185, 80, 0.15);
+    border-color: var(--accent-green);
+    color: var(--accent-green);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+/* Live Dot */
+.liveDot {
+    color: var(--accent-green);
+    font-size: 8px;
+    animation: blink 1.5s ease-in-out infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+}
+
+/* Price Flash Animations */
+.priceUp {
+    animation: flashGreen 0.5s ease;
+}
+
+.priceDown {
+    animation: flashRed 0.5s ease;
+}
+
+@keyframes flashGreen {
+    0% {
+        color: var(--text-primary);
+    }
+
+    30% {
+        color: var(--accent-green);
+        background: rgba(63, 185, 80, 0.2);
+    }
+
+    100% {
+        color: var(--text-primary);
+    }
+}
+
+@keyframes flashRed {
+    0% {
+        color: var(--text-primary);
+    }
+
+    30% {
+        color: var(--accent-red);
+        background: rgba(248, 81, 73, 0.2);
+    }
+
+    100% {
+        color: var(--text-primary);
+    }
+}
+
+/* Updating Row State */
+.tableRow.updating {
+    background: rgba(88, 166, 255, 0.05);
+}
+
+/* Mini Spinner */
+.miniSpinner {
+    animation: spin 1s linear infinite;
+    color: var(--accent-blue);
+}
+
+.loadingState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 40px;
+    color: var(--text-tertiary);
+    font-size: 12px;
+}
+
+.spinner {
+    animation: spin 1s linear infinite;
+    color: var(--accent-blue);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border-primary);
+    flex-shrink: 0;
+}
+
+.headerLeft {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.title {
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.dropdown {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 8px;
+    font-size: 11px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.searchSmall {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 8px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-primary);
+    border-radius: 4px;
+}
+
+.searchSmall input {
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 11px;
+    color: var(--text-primary);
+    width: 110px;
+}
+
+.searchSmall input::placeholder {
+    color: var(--text-tertiary);
+}
+
+.searchSmall svg {
+    color: var(--text-tertiary);
+}
+
+.viewToggle {
+    display: flex;
+    border: 1px solid var(--border-primary);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.viewBtn {
+    padding: 4px 6px;
+    font-size: 10px;
+    background: transparent;
+    border: none;
+    color: var(--text-tertiary);
+    cursor: pointer;
+}
+
+.viewBtn.active {
+    background: var(--bg-hover);
+    color: var(--text-primary);
+}
+
+.headerRight {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.timeframes {
+    display: flex;
+    background: var(--bg-tertiary);
+    border-radius: 4px;
+    padding: 2px;
+}
+
+.tfBtn {
+    padding: 3px 7px;
+    font-size: 10px;
+    font-weight: 500;
+    background: transparent;
+    border: none;
+    border-radius: 3px;
+    color: var(--text-tertiary);
+    cursor: pointer;
+    transition: all 0.1s ease;
+}
+
+.tfBtn:hover {
+    color: var(--text-secondary);
+}
+
+.tfBtn.active {
+    background: var(--accent-blue);
+    color: #fff;
+}
+
+.expandIcon {
+    color: var(--text-tertiary);
+    cursor: pointer;
+}
+
+.expandIcon:hover {
+    color: var(--text-secondary);
+}
+
+/* Content */
+.content {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+/* Table */
+.tableSection {
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid var(--border-primary);
+    flex-shrink: 0;
+}
+
+.tableHeader {
+    display: grid;
+    grid-template-columns: 28px 1fr 80px 60px;
+    padding: 6px 10px;
+    font-size: 10px;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    text-transform: uppercase;
+    border-bottom: 1px solid var(--border-primary);
+    background: var(--bg-secondary);
+}
+
+.tableBody {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.tableRow {
+    display: grid;
+    grid-template-columns: 28px 1fr 80px 60px;
+    padding: 6px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background 0.1s ease;
+    border-bottom: 1px solid var(--border-secondary);
+}
+
+.tableRow:hover {
+    background: var(--bg-hover);
+}
+
+.tableRow.selected {
+    background: rgba(88, 166, 255, 0.08);
+}
+
+.colRank {
+    color: var(--text-tertiary);
+    font-size: 11px;
+}
+
+.colAsset {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.assetColor {
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+}
+
+.assetSymbol {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.assetName {
+    font-size: 10px;
+    color: var(--text-tertiary);
+    margin-left: 4px;
+}
+
+.colPrice {
+    text-align: right;
+    color: var(--text-primary);
+}
+
+.colChange {
+    text-align: right;
+    font-weight: 500;
+}
+
+.positive {
+    color: var(--accent-green);
+}
+
+.negative {
+    color: var(--accent-red);
+}
+
+/* Chart */
+.chartSection {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.chartToolbar {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 10px;
+    border-bottom: 1px solid var(--border-primary);
+    flex-shrink: 0;
+}
+
+.chartTabs {
+    display: flex;
+    gap: 2px;
+}
+
+.chartTab {
+    padding: 4px 10px;
+    font-size: 11px;
+    font-weight: 500;
+    background: transparent;
+    border: 1px solid var(--border-primary);
+    border-radius: 4px;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.chartTab.active {
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    border-color: var(--text-primary);
+}
+
+.chartOption {
+    font-size: 10px;
+    color: var(--text-tertiary);
+}
+
+.selectedTags {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-left: auto;
+}
+
+.tag {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 8px;
+    font-size: 11px;
+    background: var(--bg-tertiary);
+    border: 1px solid var(--border-primary);
+    border-radius: 4px;
+    color: var(--text-primary);
+}
+
+.tagColor {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+}
+
+.tag svg {
+    cursor: pointer;
+    color: var(--text-tertiary);
+}
+
+.tag svg:hover {
+    color: var(--text-primary);
+}
+
+.addTag {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    padding: 3px 8px;
+    font-size: 11px;
+    background: transparent;
+    border: 1px dashed var(--border-primary);
+    border-radius: 4px;
+    color: var(--text-tertiary);
+    cursor: pointer;
+}
+
+.addTag:hover {
+    border-color: var(--accent-blue);
+    color: var(--accent-blue);
+}
+
+/* Chart Area */
+.chartArea {
+    flex: 1;
+    position: relative;
+    padding: 12px;
+    min-height: 0;
+}
+
+.chartTooltip {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-primary);
+    border-radius: 6px;
+    padding: 8px 10px;
+    font-size: 11px;
+    z-index: 10;
+}
+
+.tooltipDate {
+    display: block;
+    color: var(--text-tertiary);
+    margin-bottom: 6px;
+}
+
+.tooltipRow {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 3px;
+}
+
+.tooltipColor {
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+}
+
+.chartSvg {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 20px;
+    height: 70%;
+}
+
+.chartLabels {
+    position: absolute;
+    right: 16px;
+    top: 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    font-size: 10px;
+    font-weight: 500;
+}
+
+.labelPositive {
+    color: var(--accent-green);
+}
+
+.labelNegative {
+    color: var(--accent-red);
+}
+
+.watermark {
+    position: absolute;
+    right: 20px;
+    bottom: 40px;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--border-primary);
+    opacity: 0.6;
+}
+
+.timeAxis {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 12px;
+    font-size: 9px;
+    color: var(--text-tertiary);
+    border-top: 1px solid var(--border-secondary);
+    flex-shrink: 0;
+}
+
+/* Chart Loading Overlay */
+.chartLoadingOverlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    background: rgba(13, 17, 23, 0.8);
+    z-index: 20;
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+.tagSpinner {
+    animation: spin 1s linear infinite;
+    margin-left: 4px;
+}
