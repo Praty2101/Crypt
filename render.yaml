@@ -1,0 +1,55 @@
+services:
+  # The Python Backend App
+  - type: web
+    name: crypt-backend
+    env: python
+    rootDir: backend
+    plan: free # Change this to starter or standard if you need more resources
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: crypt-db
+          property: connectionString
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: crypt-redis
+          property: connectionString
+      
+      # Additional App configurations required
+      - key: JWT_SECRET_KEY
+        generateValue: true
+      - key: JWT_ALGORITHM
+        value: HS256
+      - key: ACCESS_TOKEN_EXPIRE_MINUTES
+        value: 30
+      
+      # NOTE: In Render, you will need to add these API keys manually
+      # after creating the service via Blueprint, since they shouldn't
+      # be committed. Go to the service -> Environment tab and add them.
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: ALPHA_VANTAGE_API_KEY
+        sync: false
+      - key: BINANCE_API_KEY
+        sync: false
+      - key: BINANCE_SECRET_KEY
+        sync: false
+      - key: REDDIT_CLIENT_ID
+        sync: false
+      - key: REDDIT_CLIENT_SECRET
+        sync: false
+
+databases:
+  # Managed PostgreSQL Database
+  - name: crypt-db
+    plan: free
+    databaseName: crypt
+    user: crypt_user
+
+redis:
+  # Managed Redis Instance
+  - name: crypt-redis
+    plan: free

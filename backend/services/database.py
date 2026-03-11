@@ -115,9 +115,16 @@ class AgentSession(Base):
 
 # ============ Database Setup ============
 
+# Format Database URL to use asyncpg for Render compatibility
+db_url = settings.database_url
+if db_url.startswith("postgres://"):
+    db_url = db_url.replace("postgres://", "postgresql+asyncpg://", 1)
+elif db_url.startswith("postgresql://"):
+    db_url = db_url.replace("postgresql://", "postgresql+asyncpg://", 1)
+
 # Create async engine
 engine = create_async_engine(
-    settings.database_url,
+    db_url,
     echo=settings.debug,
     future=True
 )
